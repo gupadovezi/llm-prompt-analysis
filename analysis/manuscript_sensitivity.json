@@ -1,0 +1,383 @@
+{
+  "source": "Tables 4, 5 and 8 and the cupping contrast in the results section.",
+  "limitation": "No recommendation-level file is in this repository, so this is a sensitivity analysis of the published counts, not a mixed model fit.",
+  "reconstructed_model_chi2": {
+    "chi2": 643.4089795321912,
+    "df": 6,
+    "p": 1.0048459380587982e-135,
+    "n": 4768
+  },
+  "reconstructed_frame_chi2": {
+    "chi2": 162.89331619869128,
+    "df": 16,
+    "p": 2.189492438881672e-26,
+    "n": 4768
+  },
+  "cupping_yates_excluding_unclear": {
+    "chi2": 62.64110137627211,
+    "df": 1,
+    "p": 2.4802305820949112e-15,
+    "n": 2066
+  },
+  "within_response_design_effect": {
+    "model_omnibus": {
+      "published_or_reconstructed_chi2": 643.4089795321912,
+      "df": 6,
+      "mean_recommendations_per_response": 8.277777777777779,
+      "by_icc": [
+        {
+          "icc_within_response": 0.0,
+          "design_effect": 1.0,
+          "chi2_adjusted": 643.4089795321912,
+          "p": 1.0048459380587982e-135
+        },
+        {
+          "icc_within_response": 0.1,
+          "design_effect": 1.7277777777777779,
+          "chi2_adjusted": 372.39104924692737,
+          "p": 2.398194606121151e-77
+        },
+        {
+          "icc_within_response": 0.2,
+          "design_effect": 2.4555555555555557,
+          "chi2_adjusted": 262.0217563705756,
+          "p": 1.1038572127419487e-53
+        },
+        {
+          "icc_within_response": 0.5,
+          "design_effect": 4.638888888888889,
+          "chi2_adjusted": 138.69894169556216,
+          "p": 1.8857621160629965e-27
+        },
+        {
+          "icc_within_response": 1.0,
+          "design_effect": 8.277777777777779,
+          "chi2_adjusted": 77.72725927234524,
+          "p": 1.0522937561691943e-14
+        }
+      ],
+      "design_effect_that_would_push_p_to_0.05": 51.09832200478645,
+      "icc_that_would_push_p_to_0.05": 6.883738901421038,
+      "note": "An ICC above 1 is outside the range of a within-response correlation, so that test cannot be undone by clustering recommendations inside the response."
+    },
+    "frame_omnibus": {
+      "published_or_reconstructed_chi2": 162.89331619869128,
+      "df": 16,
+      "mean_recommendations_per_response": 8.277777777777779,
+      "by_icc": [
+        {
+          "icc_within_response": 0.0,
+          "design_effect": 1.0,
+          "chi2_adjusted": 162.89331619869128,
+          "p": 2.189492438881672e-26
+        },
+        {
+          "icc_within_response": 0.1,
+          "design_effect": 1.7277777777777779,
+          "chi2_adjusted": 94.27908976130041,
+          "p": 4.0443960913400617e-13
+        },
+        {
+          "icc_within_response": 0.2,
+          "design_effect": 2.4555555555555557,
+          "chi2_adjusted": 66.33664460580188,
+          "p": 4.332250163698196e-08
+        },
+        {
+          "icc_within_response": 0.5,
+          "design_effect": 4.638888888888889,
+          "chi2_adjusted": 35.11472684522686,
+          "p": 0.0038330886848675825
+        },
+        {
+          "icc_within_response": 1.0,
+          "design_effect": 8.277777777777779,
+          "chi2_adjusted": 19.678387191788207,
+          "p": 0.23505648288870673
+        }
+      ],
+      "design_effect_that_would_push_p_to_0.05": 6.1945507411321445,
+      "icc_that_would_push_p_to_0.05": 0.7137550636670121,
+      "note": "An ICC above 1 is outside the range of a within-response correlation, so that test cannot be undone by clustering recommendations inside the response."
+    },
+    "cupping": {
+      "published_or_reconstructed_chi2": 62.64110137627211,
+      "df": 1,
+      "mean_recommendations_per_response": 8.277777777777779,
+      "by_icc": [
+        {
+          "icc_within_response": 0.0,
+          "design_effect": 1.0,
+          "chi2_adjusted": 62.64110137627211,
+          "p": 2.4802305820949112e-15
+        },
+        {
+          "icc_within_response": 0.1,
+          "design_effect": 1.7277777777777779,
+          "chi2_adjusted": 36.25529983192598,
+          "p": 1.7308866497090865e-09
+        },
+        {
+          "icc_within_response": 0.2,
+          "design_effect": 2.4555555555555557,
+          "chi2_adjusted": 25.509950786717148,
+          "p": 4.401071890214591e-07
+        },
+        {
+          "icc_within_response": 0.5,
+          "design_effect": 4.638888888888889,
+          "chi2_adjusted": 13.503470955364048,
+          "p": 0.00023812259498585394
+        },
+        {
+          "icc_within_response": 1.0,
+          "design_effect": 8.277777777777779,
+          "chi2_adjusted": 7.567381374314751,
+          "p": 0.005943407267373963
+        }
+      ],
+      "design_effect_that_would_push_p_to_0.05": 16.306591922532522,
+      "icc_that_would_push_p_to_0.05": 2.1031958366838577,
+      "note": "An ICC above 1 is outside the range of a within-response correlation, so that test cannot be undone by clustering recommendations inside the response."
+    }
+  },
+  "pairwise_among_models_at_recommendation_level": [
+    {
+      "contrast": "ChatGPT 5.5 vs Gemini",
+      "three_level": {
+        "chi2": 4.1083866702546175,
+        "df": 2,
+        "p": 0.12819620525517444,
+        "n": 2347
+      },
+      "accurate_vs_not": {
+        "chi2": 0.5007510250190418,
+        "df": 1,
+        "p": 0.47917031407891997,
+        "n": 2347
+      }
+    },
+    {
+      "contrast": "ChatGPT 5.5 vs DeepSeek",
+      "three_level": {
+        "chi2": 6.7094791868239385,
+        "df": 2,
+        "p": 0.034918461968460775,
+        "n": 2382
+      },
+      "accurate_vs_not": {
+        "chi2": 1.5040734896120838,
+        "df": 1,
+        "p": 0.22004565127949285,
+        "n": 2382
+      }
+    },
+    {
+      "contrast": "ChatGPT 5.5 vs Guideline-informed RAG",
+      "three_level": {
+        "chi2": 229.57000562024785,
+        "df": 2,
+        "p": 1.41093391977193e-50,
+        "n": 2387
+      },
+      "accurate_vs_not": {
+        "chi2": 194.81120951832662,
+        "df": 1,
+        "p": 2.832794279722966e-44,
+        "n": 2387
+      }
+    },
+    {
+      "contrast": "Gemini vs DeepSeek",
+      "three_level": {
+        "chi2": 3.7333444755710286,
+        "df": 1,
+        "p": 0.0533364970753512,
+        "n": 2381
+      },
+      "accurate_vs_not": {
+        "chi2": 3.7333444755710286,
+        "df": 1,
+        "p": 0.0533364970753512,
+        "n": 2381
+      }
+    },
+    {
+      "contrast": "Gemini vs Guideline-informed RAG",
+      "three_level": {
+        "chi2": 244.834300169392,
+        "df": 2,
+        "p": 6.837655686412415e-54,
+        "n": 2386
+      },
+      "accurate_vs_not": {
+        "chi2": 209.54954983324444,
+        "df": 1,
+        "p": 1.722430688513495e-47,
+        "n": 2386
+      }
+    },
+    {
+      "contrast": "DeepSeek vs Guideline-informed RAG",
+      "three_level": {
+        "chi2": 234.94127886719247,
+        "df": 2,
+        "p": 9.619433758612403e-52,
+        "n": 2421
+      },
+      "accurate_vs_not": {
+        "chi2": 172.7774192491188,
+        "df": 1,
+        "p": 1.8305367307065974e-39,
+        "n": 2421
+      }
+    }
+  ],
+  "turn_level_proportion_accurate": [
+    {
+      "contrast": "ChatGPT 5.5 vs Gemini",
+      "turns_treated_as_independent": {
+        "difference": -0.020000000000000018,
+        "t": -2.3533936216582108,
+        "df": 500.03092783505156,
+        "p": 0.018989158719251546,
+        "se": 0.008498365855987974
+      },
+      "response_using_turn_sd": {
+        "difference": -0.020000000000000018,
+        "t": -1.664100588675689,
+        "df": 249.1443298969072,
+        "p": 0.09734950520466536,
+        "se": 0.01201850425154663
+      },
+      "vignette_using_turn_sd_as_upper_bound": {
+        "difference": -0.020000000000000018,
+        "t": -0.5547001962252297,
+        "df": 26.1340206185567,
+        "p": 0.5838163676362259,
+        "se": 0.03605551275463989
+      }
+    },
+    {
+      "contrast": "ChatGPT 5.5 vs DeepSeek",
+      "turns_treated_as_independent": {
+        "difference": 0.0,
+        "t": 0.0,
+        "df": 555.6128995265476,
+        "p": 1.0,
+        "se": 0.009211037160652046
+      },
+      "response_using_turn_sd": {
+        "difference": 0.0,
+        "t": 0.0,
+        "df": 276.83737410377404,
+        "p": 1.0,
+        "se": 0.013026373676116688
+      },
+      "vignette_using_turn_sd_as_upper_bound": {
+        "difference": 0.0,
+        "t": 0.0,
+        "df": 29.055179593961476,
+        "p": 1.0,
+        "se": 0.03905124837953328
+      }
+    },
+    {
+      "contrast": "ChatGPT 5.5 vs Guideline-informed RAG",
+      "turns_treated_as_independent": {
+        "difference": 0.4099999999999999,
+        "t": 15.231593569107737,
+        "df": 328.17231243879553,
+        "p": 5.356871755571622e-40,
+        "se": 0.02691773504458192
+      },
+      "response_using_turn_sd": {
+        "difference": 0.4099999999999999,
+        "t": 10.770363100993489,
+        "df": 163.51243928535587,
+        "p": 8.80627010269077e-21,
+        "se": 0.038067425968413296
+      },
+      "vignette_using_turn_sd_as_upper_bound": {
+        "difference": 0.4099999999999999,
+        "t": 3.5959378791588192,
+        "df": 17.21912783589186,
+        "p": 0.002190579493780767,
+        "se": 0.11401754250991379
+      }
+    },
+    {
+      "contrast": "Gemini vs DeepSeek",
+      "turns_treated_as_independent": {
+        "difference": 0.020000000000000018,
+        "t": 2.6475456492234195,
+        "df": 545.8754735014863,
+        "p": 0.008342167225539886,
+        "se": 0.0075541662542689065
+      },
+      "response_using_turn_sd": {
+        "difference": 0.020000000000000018,
+        "t": 1.8720974820668201,
+        "df": 271.9843680744473,
+        "p": 0.062266159577568356,
+        "se": 0.01068320436920825
+      },
+      "vignette_using_turn_sd_as_upper_bound": {
+        "difference": 0.020000000000000018,
+        "t": 0.6246950475544248,
+        "df": 28.62088535754824,
+        "p": 0.537119959730654,
+        "se": 0.032015621187164243
+      }
+    },
+    {
+      "contrast": "Gemini vs Guideline-informed RAG",
+      "turns_treated_as_independent": {
+        "difference": 0.42999999999999994,
+        "t": 16.289904375220846,
+        "df": 304.8241581523261,
+        "p": 2.3607809708471507e-43,
+        "se": 0.02639671726091212
+      },
+      "response_using_turn_sd": {
+        "difference": 0.42999999999999994,
+        "t": 11.51870184859907,
+        "df": 151.87917171466225,
+        "p": 1.845652943959675e-22,
+        "se": 0.03733059555250989
+      },
+      "vignette_using_turn_sd_as_upper_bound": {
+        "difference": 0.42999999999999994,
+        "t": 3.8460369212996377,
+        "df": 15.99065293034045,
+        "p": 0.0014285552833753776,
+        "se": 0.11180339887498948
+      }
+    },
+    {
+      "contrast": "DeepSeek vs Guideline-informed RAG",
+      "turns_treated_as_independent": {
+        "difference": 0.4099999999999999,
+        "t": 15.393448329515948,
+        "df": 315.46683639800585,
+        "p": 2.847553254527949e-40,
+        "se": 0.026634707911017654
+      },
+      "response_using_turn_sd": {
+        "difference": 0.4099999999999999,
+        "t": 10.884811699645459,
+        "df": 157.18190275075466,
+        "p": 6.438873843002982e-21,
+        "se": 0.03766716515760713
+      },
+      "vignette_using_turn_sd_as_upper_bound": {
+        "difference": 0.4099999999999999,
+        "t": 3.6345860988590766,
+        "df": 16.545463447447858,
+        "p": 0.002127633256498467,
+        "se": 0.11280514172678478
+      }
+    }
+  ],
+  "reading": "The model chi-square is the guideline-informed RAG chatbot against the other three. Clustering recommendations inside the response cannot remove it: the required design effect is about 51, and the maximum within-response design effect is 8.3. Pairwise tests among ChatGPT, Gemini and DeepSeek are already non-significant or marginal before any correction. The frame and cupping chi-squares shrink, and they lose p < 0.05 only if recommendations inside a response are nearly duplicates. They are not: a cupping-sheet answer mixes several accurate lines with about one inaccurate cupping line."
+}

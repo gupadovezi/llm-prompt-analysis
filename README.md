@@ -1,6 +1,34 @@
 # Dependência no estudo de prompt engineering
 
-Não existe um repositório anterior desta análise. Os textos dos modelos estão na planilha [Data_Prompt_Study](https://docs.google.com/spreadsheets/d/1phz5iTK4GwmzBwqwRF4BlM-nVzFjhwmzvZjqDfAvF4M). O que foi para o manuscrito em outubro de 2026 não foi commitado em nenhum repositório do GitHub (`gupadovezi`) nem do Origin. Esta pasta é a análise refeita a partir dessa planilha.
+Não existe um repositório anterior desta análise. Os textos dos modelos estão na planilha [Data_Prompt_Study](https://docs.google.com/spreadsheets/d/1phz5iTK4GwmzBwqwRF4BlM-nVzFjhwmzvZjqDfAvF4M). O arquivo com as 4.768 recomendações codificadas (accurate / inaccurate / unclear) não está aqui. O que dá para checar a partir das tabelas do manuscrito está em `analysis/manuscript_chi2_sensitivity.py`.
+
+## O qui-quadrado do manuscrito
+
+O método testa modelo e prompt frame com χ² nas 4.768 recomendações. A média é 8,3 recomendações por resposta, e a mesma vinheta entra nos 4 modelos e nos 9 frames. Esse χ² trata cada linha como um ensaio. O Wilcoxon e o McNemar do turno 1 contra o turno 2 já são pareados; o problema é o χ².
+
+Corrigir pelo efeito de delineamento dentro da resposta, 1 + (8,3 − 1) × ICC:
+
+| Teste publicado | χ² | ICC que levaria o p a 0,05 |
+| --- | --- | --- |
+| Modelo × acurácia, df = 6 | 643,41 | 6,9, impossível: o teto do ICC é 1, e mesmo ICC = 1 deixa p = 1×10⁻¹⁴ |
+| Frame × acurácia, df = 16 | 162,89 | 0,71 |
+| Ventosa contra terapia manual/massagem, df = 1, Yates, sem unclear | 62,64 | 2,1, também acima do teto; com ICC = 1 o p ainda é 0,006 |
+
+O χ² de modelo é o RAG contra os outros três (75,0% contra 94,3–96,0%; 204 das 208 recomendações unclear são do RAG). Na média por turno da Tabela 4 a distância é 0,54 contra 0,95–0,97. Usando o desvio-padrão do turno como se fosse o desvio da vinheta (n = 16), o que infla o erro padrão, o p do RAG contra cada modelo geral continua em torno de 0,003.
+
+Entre ChatGPT, Gemini e DeepSeek o χ² pareado nas recomendações já sai p = 0,13, 0,035 e 0,053. Com Bonferroni e com a resposta como unidade, esses três não se separam.
+
+O contraste de frame encolhe, e só perde p < 0,05 se as recomendações de uma mesma resposta forem quase cópias (ICC por volta de 0,7). Não são: nas folhas de ventosa os três modelos gerais somam 106 recomendações inaccurate em 96 respostas, cerca de uma linha inaccurate no meio de várias linhas accurate. Um intercepto aleatório de vinheta não apaga um excesso que se repete nos três modelos. O que esse modelo também não separa é profissão e tratamento: fisioterapeuta e médico pedem ventosa; osteopata e massoterapeuta pedem terapia manual ou massagem junto com exercício.
+
+Um modelo misto “por recomendação” usaria a linha errada como cluster. A recomendação é a observação. O cluster é a resposta, com intercepto aleatório da vinheta. Se a ideia é agrupar pelo conteúdo (ventosa, paracetamol, exercício), a Tabela 7 já faz isso: 149/265 inaccurate são paracetamol e 80/265 são ventosa.
+
+```bash
+python analysis/manuscript_chi2_sensitivity.py
+```
+
+## Leitura direta da planilha, outro desfecho
+
+A seção abaixo não é o χ² do manuscrito. É uma codificação binária, feita nesta análise, do trecho “Should I follow his recommendation?” na planilha bruta.
 
 ## O qui-quadrado trata célula como ensaio
 
