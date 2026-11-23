@@ -3,10 +3,11 @@
 The manuscript tests differences across models and prompt frames with a
 chi-square on 4,768 recommendations (mean 8.3 per response). Recommendations
 from the same response are not independent trials, and the same vignette is
-reused across models and frames. This script does not refit a mixed model:
-the recommendation-level file is not in the repository. It recomputes the
-published tables and asks how large a within-response intraclass correlation
-would have to be before each reported chi-square lost p < 0.05.
+reused across models and frames. This script does not refit a mixed model. The JSONL now lives at
+data/recommendations.jsonl and is consumed by fit_clustered.py; this script
+still recomputes the published tables hardcoded below and does not read the
+JSONL. It asks how large a within-response intraclass correlation would have
+to be before each reported chi-square lost p < 0.05.
 
 The correction is the first-order Rao-Scott adjustment, chi-square divided by
 the design effect 1 + (m - 1) * ICC, with m = 4,768 / 576.

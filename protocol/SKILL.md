@@ -109,6 +109,8 @@ Use a Cursor canvas for the analysis artifact (accuracy by LLM, by prompt frame,
 
 ## Files
 
+This file is a copy of the original local skill inside the repo. Runnable analysis is under `analysis/` (`fit_clustered.py`, `manuscript_chi2_sensitivity.py`, `compare_independence.py`). The `scripts/ingest_responses.py` and `scripts/analyze_accuracy.py` paths below are from the original local skill and are not in this repository.
+
 - [codebook.md](codebook.md) — Table 3, vignettes, guideline map, JSONL schema
 - [statistics.md](statistics.md) — analysis plan
 - `scripts/ingest_responses.py` — tidy CSV

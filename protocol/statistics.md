@@ -43,6 +43,8 @@ accurate_binary ~ C(llm) + C(prompt_frame) + C(vignette_domain) + C(turn)
                   + (1 | vignette_id)
 ```
 
+Implemented GLM in `analysis/fit_clustered.py`: `accurate ~ C(llm, Treatment('ChatGPT')) + C(frame, Treatment('neutral'))` with cluster-robust SE / GEE / Bayes mixed intercept on `vignette_id`. It does not include `vignette_domain` or `turn` as covariates.
+
 Add `llm:prompt_frame` if the research question (does framing change LLM accuracy?) is tested formally. If the mixed model fails to converge, report GEE with cluster = vignette_id, plus the χ² tables as sensitivity.
 
 ## Consistency / reliability (protocol comment, optional)
@@ -63,4 +65,4 @@ The protocol body currently specifies descriptive stats only. A comment proposes
 
 CHART-aligned: name models, dates, that prompts were new-chat / English, coding framework, and that agent codes are first-pass until dual review.
 
-Script: `python scripts/analyze_accuracy.py --recs data/recommendations.jsonl --out data/stats/`.
+Confirmatory clustered logit: `python analysis/fit_clustered.py` (writes `analysis/clustered_results.json`). Chi-square sensitivity of the published tables: `python analysis/manuscript_chi2_sensitivity.py`. Separate endorsement contrast: `python analysis/compare_independence.py`. The original skill scripts (`scripts/analyze_accuracy.py`, ingest) are not in this repository.

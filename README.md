@@ -10,7 +10,7 @@ Os textos brutos continuam na planilha [Data_Prompt_Study](https://docs.google.c
 | `protocol/` | Codebook, plano estatístico e o skill que gerou a codificação |
 | `reports/` | Relatório de 21 de setembro de 2026 (320 respostas) e o de 22 de setembro (576 respostas, nove frames) |
 | `manuscript/` | Manuscrito com os comentários |
-| `analysis/` | Checagem do qui-quadrado a partir das tabelas publicadas, e um contraste à parte lido da planilha bruta |
+| `analysis/` | Três scripts. `fit_clustered.py` lê `data/recommendations.jsonl`. `manuscript_chi2_sensitivity.py` usa as tabelas publicadas hardcoded no script (não lê o JSONL). `compare_independence.py` usa grades de endosso hardcoded (não baixa a planilha). |
 
 O plano em `protocol/statistics.md` já marca a logística mista com intercepto aleatório da vinheta como teste confirmatório. O qui-quadrado fica como alternativa se o misto não convergir. Esse ajuste está em `analysis/fit_clustered.py` e o resultado em `analysis/clustered_results.json`.
 
@@ -60,7 +60,9 @@ python analysis/manuscript_chi2_sensitivity.py
 
 ## Leitura direta da planilha, outro desfecho
 
-A seção abaixo não é o χ² do manuscrito. É uma codificação binária, feita nesta análise, do trecho “Should I follow his recommendation?” na planilha bruta.
+A seção abaixo não é o χ² do manuscrito. É uma codificação binária, feita nesta análise, do trecho “Should I follow his recommendation?” na planilha bruta. Os códigos (TRUE/FALSE) estão hardcoded em `compare_independence.py`; a planilha é a origem dos trechos, não uma dependência em tempo de execução.
+
+A codificação lê o trecho “Should I follow his recommendation?” de cada célula. 1 = seguir agora. 0 = não seguir, ou só seguir depois de uma avaliação. O BioBERT, na folha verdadeira, pede o contexto de novo em todas as células e entra como 0. Isso é uma leitura desta análise, não uma segunda codificação independente, e não reproduz uma tabela do manuscrito.
 
 ## O qui-quadrado trata célula como ensaio
 
@@ -93,11 +95,41 @@ As duas vinhetas de bandeira vermelha (fratura suspeita e possível patologia gr
 
 ## Como rodar
 
+Python 3.13, como em `protocol/statistics.md`. Rodar a partir da raiz do repositório. Os scripts escrevem em `analysis/`. Não há variáveis de ambiente.
+
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+Pacotes em `requirements.txt`: pandas, scipy, statsmodels.
+
+| Script | Entrada | Saída | O que testa |
+| --- | --- | --- | --- |
+| `analysis/fit_clustered.py` | `data/recommendations.jsonl` | `analysis/clustered_results.json` | Logit GLM com SE cluster-robusto (resposta e vinheta), GEE e misto bayesiano por `vignette_id`; Wilcoxon pareado |
+| `analysis/manuscript_chi2_sensitivity.py` | Tabelas publicadas hardcoded no script (não lê o JSONL) | `analysis/manuscript_sensitivity.json` | Sensibilidade Rao-Scott do χ² do manuscrito |
+| `analysis/compare_independence.py` | Grades TRUE/FALSE hardcoded (não baixa a planilha) | `analysis/results.json`, `analysis/coded_endorsement.csv`, `analysis/vignette_means.csv` | Endosso binário do trecho “Should I follow his recommendation?” |
+
+```bash
+python analysis/fit_clustered.py
+python analysis/manuscript_chi2_sensitivity.py
 python analysis/compare_independence.py
 ```
 
-A saída fica em `analysis/results.json`. A grade codificada fica em `analysis/coded_endorsement.csv`.
+Em `fit_clustered.py` o desfecho binário é `accuracy == "accurate"` (inaccurate e unclear entram como 0). A fórmula do GLM é `accurate ~ C(llm, Treatment('ChatGPT')) + C(frame, Treatment('neutral'))`. `disagreeing_authority` vira `authority_<profession>`.
 
-A codificação lê o trecho “Should I follow his recommendation?” de cada célula. 1 = seguir agora. 0 = não seguir, ou só seguir depois de uma avaliação. O BioBERT, na folha verdadeira, pede o contexto de novo em todas as células e entra como 0. Isso é uma leitura desta análise, não uma segunda codificação independente, e não reproduz uma tabela do manuscrito que não está neste repositório.
+Codebook e schema: `protocol/codebook.md`. Plano confirmatório: `protocol/statistics.md`.
+
+`scripts/analyze_accuracy.py` e `scripts/ingest_responses.py`, citados no skill, **não** estão neste repositório.
+
+## Armadilhas
+
+| Sintoma | Causa |
+| --- | --- |
+| `FileNotFoundError` em `data/recommendations.jsonl` | `fit_clustered.py` precisa do JSONL; rode da raiz do repositório |
+| `gee_vignette` ou `bayes_mixed_vignette` com `"error"` | `fit_clustered.py` captura a exceção e ainda grava GLM + Wilcoxon |
+| OR do GEE/GLMM de endosso vai a infinito | A condição falsa tem zero endossos em `compare_independence.py`; use a diferença de risco por vinheta |
+| Achar que o script baixa a planilha | A URL é só proveniência; as grades estão no arquivo Python; sem credenciais |
+| `python scripts/analyze_accuracy.py` | Caminho do skill original; esses scripts não estão neste repositório. Use `analysis/fit_clustered.py` |
+| ids de vinheta diferentes (`acute_nonspecific_5d` vs `acute_nonspecific_lbp`) | `compare_independence.py` e o codebook/JSONL são análises distintas; não junte como se os ids coincidissem |
