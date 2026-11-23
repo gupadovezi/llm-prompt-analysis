@@ -1,0 +1,813 @@
+{
+  "n_recommendations": 4768,
+  "n_responses": 576,
+  "n_vignettes": 16,
+  "chi2_llm_by_accuracy": {
+    "table": {
+      "accurate": {
+        "BioBERT": 910,
+        "ChatGPT": 1120,
+        "DeepSeek": 1139,
+        "Gemini": 1126
+      },
+      "inaccurate": {
+        "BioBERT": 99,
+        "ChatGPT": 50,
+        "DeepSeek": 69,
+        "Gemini": 47
+      },
+      "unclear": {
+        "BioBERT": 204,
+        "ChatGPT": 4,
+        "DeepSeek": 0,
+        "Gemini": 0
+      }
+    },
+    "chi2": 643.4089795321912,
+    "df": 6,
+    "p": 1.0048459380587982e-135,
+    "n": 4768
+  },
+  "chi2_frame_by_accuracy": {
+    "table": {
+      "accurate": {
+        "authority_massage_therapist": 520,
+        "authority_osteopath": 532,
+        "authority_physician": 424,
+        "authority_physiotherapist": 427,
+        "comparative_dilemma": 536,
+        "confirming_false": 415,
+        "confirming_true": 449,
+        "disagreeing_personal": 505,
+        "neutral": 487
+      },
+      "inaccurate": {
+        "authority_massage_therapist": 19,
+        "authority_osteopath": 18,
+        "authority_physician": 61,
+        "authority_physiotherapist": 65,
+        "comparative_dilemma": 15,
+        "confirming_false": 17,
+        "confirming_true": 13,
+        "disagreeing_personal": 29,
+        "neutral": 28
+      },
+      "unclear": {
+        "authority_massage_therapist": 30,
+        "authority_osteopath": 33,
+        "authority_physician": 32,
+        "authority_physiotherapist": 30,
+        "comparative_dilemma": 0,
+        "confirming_false": 16,
+        "confirming_true": 16,
+        "disagreeing_personal": 34,
+        "neutral": 17
+      }
+    },
+    "chi2": 162.89331619869128,
+    "df": 16,
+    "p": 2.189492438881672e-26,
+    "n": 4768
+  },
+  "glm_cluster_response": {
+    "cluster": "response_id",
+    "n_clusters": 576,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "log_odds": 3.2189818496744635,
+        "odds_ratio": 25.00265076067728,
+        "se": 0.1585397513263783,
+        "p": 1.1867327908870456e-91,
+        "or_ci95": [
+          18.324695792573884,
+          34.1142113428007
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.BioBERT]",
+        "log_odds": -2.0629466211352265,
+        "odds_ratio": 0.1270789641046883,
+        "se": 0.11755108547497531,
+        "p": 6.015129417710417e-69,
+        "or_ci95": [
+          0.10092854225043857,
+          0.16000491791359928
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.DeepSeek]",
+        "log_odds": -0.22850112130437755,
+        "odds_ratio": 0.7957254049536044,
+        "se": 0.1556185923166069,
+        "p": 0.14201168580124446,
+        "or_ci95": [
+          0.5865437858058679,
+          1.0795083596677044
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.Gemini]",
+        "log_odds": 0.1578892593174352,
+        "odds_ratio": 1.1710365061449033,
+        "se": 0.14878459840726838,
+        "p": 0.288601940424947,
+        "or_ci95": [
+          0.874832189002064,
+          1.5675309116007237
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_massage_therapist]",
+        "log_odds": 0.03401640567258024,
+        "odds_ratio": 1.0346015799236603,
+        "se": 0.15856626343789604,
+        "p": 0.8301377816898755,
+        "or_ci95": [
+          0.7582305682613123,
+          1.4117083562524448
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_osteopath]",
+        "log_odds": 0.01255162994423309,
+        "odds_ratio": 1.0126307322592327,
+        "se": 0.155874421859131,
+        "p": 0.9358205191831088,
+        "or_ci95": [
+          0.7460545015935149,
+          1.3744585653268622
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physician]",
+        "log_odds": -0.9569005195886348,
+        "odds_ratio": 0.38408149606012126,
+        "se": 0.15491826941558043,
+        "p": 6.541023399082041e-10,
+        "or_ci95": [
+          0.28350238357139146,
+          0.5203434050798126
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physiotherapist]",
+        "log_odds": -0.9644312698529436,
+        "odds_ratio": 0.3811999379974997,
+        "se": 0.15267561663114496,
+        "p": 2.669224354785899e-10,
+        "or_ci95": [
+          0.2826149298596659,
+          0.5141745087616347
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.comparative_dilemma]",
+        "log_odds": 1.5066363105116813,
+        "odds_ratio": 4.511529857473164,
+        "se": 0.2612696624101175,
+        "p": 8.088915536436408e-09,
+        "or_ci95": [
+          2.7035269056226894,
+          7.528647712934015
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_false]",
+        "log_odds": 0.13526014175092244,
+        "odds_ratio": 1.1448345648852862,
+        "se": 0.221431500676478,
+        "p": 0.5413027470735982,
+        "or_ci95": [
+          0.7417540018956296,
+          1.7669553215845009
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_true]",
+        "log_odds": 0.4045871887037998,
+        "odds_ratio": 1.4986836987811882,
+        "se": 0.18688212004368512,
+        "p": 0.03039284940742493,
+        "or_ci95": [
+          1.0390480568838665,
+          2.161644799883883
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.disagreeing_personal]",
+        "log_odds": -0.07033962860952772,
+        "odds_ratio": 0.9320772060579652,
+        "se": 0.1635918313914297,
+        "p": 0.6672172468567306,
+        "or_ci95": [
+          0.6763979272809164,
+          1.2844035781499556
+        ]
+      }
+    ]
+  },
+  "glm_cluster_vignette": {
+    "cluster": "vignette_id",
+    "n_clusters": 16,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "log_odds": 3.2189818496744635,
+        "odds_ratio": 25.00265076067728,
+        "se": 0.2404631346476371,
+        "p": 7.242873464640315e-41,
+        "or_ci95": [
+          15.606426212873119,
+          40.056098464410084
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.BioBERT]",
+        "log_odds": -2.0629466211352265,
+        "odds_ratio": 0.1270789641046883,
+        "se": 0.17767743236985784,
+        "p": 3.6393163102128097e-31,
+        "or_ci95": [
+          0.08970865830415545,
+          0.1800167723294621
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.DeepSeek]",
+        "log_odds": -0.22850112130437755,
+        "odds_ratio": 0.7957254049536044,
+        "se": 0.14555142886475225,
+        "p": 0.11643848450947006,
+        "or_ci95": [
+          0.5982319764443876,
+          1.0584170439231593
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.Gemini]",
+        "log_odds": 0.1578892593174352,
+        "odds_ratio": 1.1710365061449033,
+        "se": 0.0996946042091017,
+        "p": 0.11325534881378736,
+        "or_ci95": [
+          0.9631861589560959,
+          1.4237398305331856
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_massage_therapist]",
+        "log_odds": 0.03401640567258024,
+        "odds_ratio": 1.0346015799236603,
+        "se": 0.18323907860475205,
+        "p": 0.8527274979327295,
+        "or_ci95": [
+          0.7224366178860107,
+          1.4816530650297504
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_osteopath]",
+        "log_odds": 0.01255162994423309,
+        "odds_ratio": 1.0126307322592327,
+        "se": 0.1819484097479765,
+        "p": 0.9450019141251208,
+        "or_ci95": [
+          0.7088858972234446,
+          1.4465247565683361
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physician]",
+        "log_odds": -0.9569005195886348,
+        "odds_ratio": 0.38408149606012126,
+        "se": 0.17999897405704038,
+        "p": 1.0598910938958735e-07,
+        "or_ci95": [
+          0.2699031667454491,
+          0.546561188572154
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physiotherapist]",
+        "log_odds": -0.9644312698529436,
+        "odds_ratio": 0.3811999379974997,
+        "se": 0.2026255580740384,
+        "p": 1.93907465606005e-06,
+        "or_ci95": [
+          0.2562581187702944,
+          0.5670586884295132
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.comparative_dilemma]",
+        "log_odds": 1.5066363105116813,
+        "odds_ratio": 4.511529857473164,
+        "se": 0.29751884624062,
+        "p": 4.1054332260821815e-07,
+        "or_ci95": [
+          2.518113694134363,
+          8.082995498687668
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_false]",
+        "log_odds": 0.13526014175092244,
+        "odds_ratio": 1.1448345648852862,
+        "se": 0.13048413967587602,
+        "p": 0.29992130367152414,
+        "or_ci95": [
+          0.8864912067618027,
+          1.4784649536949652
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_true]",
+        "log_odds": 0.4045871887037998,
+        "odds_ratio": 1.4986836987811882,
+        "se": 0.17413706913049276,
+        "p": 0.020158561076023197,
+        "or_ci95": [
+          1.065330207222459,
+          2.108316101209969
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.disagreeing_personal]",
+        "log_odds": -0.07033962860952772,
+        "odds_ratio": 0.9320772060579652,
+        "se": 0.19585400645403572,
+        "p": 0.7194879884467473,
+        "or_ci95": [
+          0.6349516482433076,
+          1.368242637776284
+        ]
+      }
+    ]
+  },
+  "gee_vignette": {
+    "cluster": "vignette_id",
+    "n_clusters": 16,
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "log_odds": 3.1391295165488153,
+        "odds_ratio": 23.083764075802613,
+        "se": 0.20774348360307876,
+        "p": 1.3787015954828715e-51,
+        "or_ci95": [
+          15.362965425843548,
+          34.6847206341387
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.BioBERT]",
+        "log_odds": -2.0262271728268626,
+        "odds_ratio": 0.13183196327778565,
+        "se": 0.15468477766901756,
+        "p": 3.333042394531734e-39,
+        "or_ci95": [
+          0.09735377541808221,
+          0.17852072471806132
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.DeepSeek]",
+        "log_odds": -0.22525233478016815,
+        "odds_ratio": 0.7983147507646158,
+        "se": 0.13208783040044927,
+        "p": 0.08813431378205938,
+        "or_ci95": [
+          0.6162270934667727,
+          1.0342071097572318
+        ]
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.Gemini]",
+        "log_odds": 0.15200345022999517,
+        "odds_ratio": 1.1641642530596084,
+        "se": 0.08931717227143575,
+        "p": 0.08878554687065494,
+        "or_ci95": [
+          0.9772087449780593,
+          1.386887310481718
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_massage_therapist]",
+        "log_odds": 0.031913584929168085,
+        "odds_ratio": 1.0324282840868468,
+        "se": 0.1649806206444575,
+        "p": 0.8466156556522668,
+        "or_ci95": [
+          0.7471849832140718,
+          1.4265652893577
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_osteopath]",
+        "log_odds": 0.013698212343883014,
+        "odds_ratio": 1.0137924627167612,
+        "se": 0.16481225548793907,
+        "p": 0.9337608624148475,
+        "or_ci95": [
+          0.7339400917092964,
+          1.4003529294437334
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physician]",
+        "log_odds": -0.9370121915101238,
+        "odds_ratio": 0.39179670182642634,
+        "se": 0.16279357378025913,
+        "p": 8.621694252541339e-09,
+        "or_ci95": [
+          0.28476763899234286,
+          0.5390523168476781
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physiotherapist]",
+        "log_odds": -0.9458383262915129,
+        "odds_ratio": 0.3883538671405804,
+        "se": 0.18314037713647624,
+        "p": 2.410131816316925e-07,
+        "or_ci95": [
+          0.27123033631745147,
+          0.5560540467955744
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.comparative_dilemma]",
+        "log_odds": 1.459731758366973,
+        "odds_ratio": 4.304804645630313,
+        "se": 0.259619030451151,
+        "p": 1.881138516447762e-08,
+        "or_ci95": [
+          2.5880062949109655,
+          7.1604706192099306
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_false]",
+        "log_odds": 0.13902134879989544,
+        "odds_ratio": 1.149148632685942,
+        "se": 0.11625137832048893,
+        "p": 0.23174792171141323,
+        "or_ci95": [
+          0.9150037037858656,
+          1.4432100925276807
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_true]",
+        "log_odds": 0.3933425672877217,
+        "odds_ratio": 1.4819259617427667,
+        "se": 0.16143757876717293,
+        "p": 0.014830193174560339,
+        "or_ci95": [
+          1.0799672613941345,
+          2.033491786827189
+        ]
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.disagreeing_personal]",
+        "log_odds": -0.06814139200422809,
+        "odds_ratio": 0.9341283859546703,
+        "se": 0.17997095662610907,
+        "p": 0.7049668146148601,
+        "or_ci95": [
+          0.656470195566498,
+          1.3292238510436483
+        ]
+      }
+    ]
+  },
+  "bayes_mixed_vignette": {
+    "random_intercept": "vignette_id",
+    "coefficients": [
+      {
+        "term": "Intercept",
+        "log_odds": 3.2213871849438154,
+        "odds_ratio": 25.0628629045454,
+        "posterior_sd": 0.0521570161722046,
+        "or_ci95": [
+          22.62735184754209,
+          27.760521920742164
+        ],
+        "interval_excludes_1": true
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.BioBERT]",
+        "log_odds": -2.0672882470396226,
+        "odds_ratio": 0.12652843075194317,
+        "posterior_sd": 0.06908372536105382,
+        "or_ci95": [
+          0.11050523884929717,
+          0.14487497565959156
+        ],
+        "interval_excludes_1": true
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.DeepSeek]",
+        "log_odds": -0.20217828117648257,
+        "odds_ratio": 0.8169492682817587,
+        "posterior_sd": 0.1256473174891641,
+        "or_ci95": [
+          0.6386191424791293,
+          1.0450768894199136
+        ],
+        "interval_excludes_1": false
+      },
+      {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.Gemini]",
+        "log_odds": 0.19574661897040907,
+        "odds_ratio": 1.216218699542917,
+        "posterior_sd": 0.15066277173793965,
+        "or_ci95": [
+          0.9052425015741237,
+          1.6340239466725306
+        ],
+        "interval_excludes_1": false
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_massage_therapist]",
+        "log_odds": 0.06481592345599352,
+        "odds_ratio": 1.0669626035178703,
+        "posterior_sd": 0.15676502599867745,
+        "or_ci95": [
+          0.7847080607523239,
+          1.4507423260240302
+        ],
+        "interval_excludes_1": false
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_osteopath]",
+        "log_odds": 0.04450866612891605,
+        "odds_ratio": 1.0455140372306257,
+        "posterior_sd": 0.15387746502878427,
+        "or_ci95": [
+          0.7732977126126414,
+          1.413555974907992
+        ],
+        "interval_excludes_1": false
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physician]",
+        "log_odds": -0.9367704208526628,
+        "odds_ratio": 0.3918914382243971,
+        "posterior_sd": 0.12454311989190064,
+        "or_ci95": [
+          0.3070100069982155,
+          0.5002406952633277
+        ],
+        "interval_excludes_1": true
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physiotherapist]",
+        "log_odds": -0.9459449647269267,
+        "odds_ratio": 0.3883124558998558,
+        "posterior_sd": 0.12340756991990173,
+        "or_ci95": [
+          0.3048840307373793,
+          0.494570224102232
+        ],
+        "interval_excludes_1": true
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.comparative_dilemma]",
+        "log_odds": 1.5622711629400494,
+        "odds_ratio": 4.769641586315966,
+        "posterior_sd": 0.26332376446768435,
+        "or_ci95": [
+          2.846689057071957,
+          7.991558054223987
+        ],
+        "interval_excludes_1": true
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_false]",
+        "log_odds": 0.17799196164461759,
+        "odds_ratio": 1.1948157168428506,
+        "posterior_sd": 0.18868123350855892,
+        "or_ci95": [
+          0.8254527493937119,
+          1.7294564689053902
+        ],
+        "interval_excludes_1": false
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.confirming_true]",
+        "log_odds": 0.4464443214058432,
+        "odds_ratio": 1.562745673651474,
+        "posterior_sd": 0.198270488482219,
+        "or_ci95": [
+          1.0595392713649157,
+          2.304939615282359
+        ],
+        "interval_excludes_1": true
+      },
+      {
+        "term": "C(frame, Treatment(reference='neutral'))[T.disagreeing_personal]",
+        "log_odds": -0.04492384594836944,
+        "odds_ratio": 0.9560702876868853,
+        "posterior_sd": 0.14071171821275652,
+        "or_ci95": [
+          0.72562725879041,
+          1.2596968814559149
+        ],
+        "interval_excludes_1": false
+      }
+    ]
+  },
+  "vignette_paired": {
+    "Gemini_minus_ChatGPT": {
+      "n_vignettes": 16,
+      "mean_difference": 0.006392848319683168,
+      "vignettes_lower_than_chatgpt": 5,
+      "wilcoxon_p": 0.129730224609375,
+      "statistic": 38.0
+    },
+    "DeepSeek_minus_ChatGPT": {
+      "n_vignettes": 16,
+      "mean_difference": -0.010571664976570694,
+      "vignettes_lower_than_chatgpt": 12,
+      "wilcoxon_p": 0.104583740234375,
+      "statistic": 36.0
+    },
+    "BioBERT_minus_ChatGPT": {
+      "n_vignettes": 16,
+      "mean_difference": -0.21074867193570923,
+      "vignettes_lower_than_chatgpt": 16,
+      "wilcoxon_p": 3.0517578125e-05,
+      "statistic": 0.0
+    },
+    "cupping_minus_manual": {
+      "n_vignettes": 16,
+      "mean_difference": -0.09156374134668425,
+      "vignettes_lower_on_cupping": 16,
+      "wilcoxon_p": 3.0517578125e-05,
+      "statistic": 0.0
+    }
+  },
+  "focus": {
+    "glm_cluster_response": {
+      "BioBERT": {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.BioBERT]",
+        "log_odds": -2.0629466211352265,
+        "odds_ratio": 0.1270789641046883,
+        "se": 0.11755108547497531,
+        "p": 6.015129417710417e-69,
+        "or_ci95": [
+          0.10092854225043857,
+          0.16000491791359928
+        ]
+      },
+      "Gemini": {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.Gemini]",
+        "log_odds": 0.1578892593174352,
+        "odds_ratio": 1.1710365061449033,
+        "se": 0.14878459840726838,
+        "p": 0.288601940424947,
+        "or_ci95": [
+          0.874832189002064,
+          1.5675309116007237
+        ]
+      },
+      "DeepSeek": {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.DeepSeek]",
+        "log_odds": -0.22850112130437755,
+        "odds_ratio": 0.7957254049536044,
+        "se": 0.1556185923166069,
+        "p": 0.14201168580124446,
+        "or_ci95": [
+          0.5865437858058679,
+          1.0795083596677044
+        ]
+      },
+      "physiotherapist_cupping": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physiotherapist]",
+        "log_odds": -0.9644312698529436,
+        "odds_ratio": 0.3811999379974997,
+        "se": 0.15267561663114496,
+        "p": 2.669224354785899e-10,
+        "or_ci95": [
+          0.2826149298596659,
+          0.5141745087616347
+        ]
+      },
+      "physician_cupping": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physician]",
+        "log_odds": -0.9569005195886348,
+        "odds_ratio": 0.38408149606012126,
+        "se": 0.15491826941558043,
+        "p": 6.541023399082041e-10,
+        "or_ci95": [
+          0.28350238357139146,
+          0.5203434050798126
+        ]
+      },
+      "osteopath": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_osteopath]",
+        "log_odds": 0.01255162994423309,
+        "odds_ratio": 1.0126307322592327,
+        "se": 0.155874421859131,
+        "p": 0.9358205191831088,
+        "or_ci95": [
+          0.7460545015935149,
+          1.3744585653268622
+        ]
+      },
+      "massage": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_massage_therapist]",
+        "log_odds": 0.03401640567258024,
+        "odds_ratio": 1.0346015799236603,
+        "se": 0.15856626343789604,
+        "p": 0.8301377816898755,
+        "or_ci95": [
+          0.7582305682613123,
+          1.4117083562524448
+        ]
+      }
+    },
+    "glm_cluster_vignette": {
+      "BioBERT": {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.BioBERT]",
+        "log_odds": -2.0629466211352265,
+        "odds_ratio": 0.1270789641046883,
+        "se": 0.17767743236985784,
+        "p": 3.6393163102128097e-31,
+        "or_ci95": [
+          0.08970865830415545,
+          0.1800167723294621
+        ]
+      },
+      "Gemini": {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.Gemini]",
+        "log_odds": 0.1578892593174352,
+        "odds_ratio": 1.1710365061449033,
+        "se": 0.0996946042091017,
+        "p": 0.11325534881378736,
+        "or_ci95": [
+          0.9631861589560959,
+          1.4237398305331856
+        ]
+      },
+      "DeepSeek": {
+        "term": "C(llm, Treatment(reference='ChatGPT'))[T.DeepSeek]",
+        "log_odds": -0.22850112130437755,
+        "odds_ratio": 0.7957254049536044,
+        "se": 0.14555142886475225,
+        "p": 0.11643848450947006,
+        "or_ci95": [
+          0.5982319764443876,
+          1.0584170439231593
+        ]
+      },
+      "physiotherapist_cupping": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physiotherapist]",
+        "log_odds": -0.9644312698529436,
+        "odds_ratio": 0.3811999379974997,
+        "se": 0.2026255580740384,
+        "p": 1.93907465606005e-06,
+        "or_ci95": [
+          0.2562581187702944,
+          0.5670586884295132
+        ]
+      },
+      "physician_cupping": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_physician]",
+        "log_odds": -0.9569005195886348,
+        "odds_ratio": 0.38408149606012126,
+        "se": 0.17999897405704038,
+        "p": 1.0598910938958735e-07,
+        "or_ci95": [
+          0.2699031667454491,
+          0.546561188572154
+        ]
+      },
+      "osteopath": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_osteopath]",
+        "log_odds": 0.01255162994423309,
+        "odds_ratio": 1.0126307322592327,
+        "se": 0.1819484097479765,
+        "p": 0.9450019141251208,
+        "or_ci95": [
+          0.7088858972234446,
+          1.4465247565683361
+        ]
+      },
+      "massage": {
+        "term": "C(frame, Treatment(reference='neutral'))[T.authority_massage_therapist]",
+        "log_odds": 0.03401640567258024,
+        "odds_ratio": 1.0346015799236603,
+        "se": 0.18323907860475205,
+        "p": 0.8527274979327295,
+        "or_ci95": [
+          0.7224366178860107,
+          1.4816530650297504
+        ]
+      }
+    }
+  }
+}

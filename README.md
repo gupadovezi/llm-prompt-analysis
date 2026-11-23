@@ -12,7 +12,27 @@ Os textos brutos continuam na planilha [Data_Prompt_Study](https://docs.google.c
 | `manuscript/` | Manuscrito com os comentários |
 | `analysis/` | Checagem do qui-quadrado a partir das tabelas publicadas, e um contraste à parte lido da planilha bruta |
 
-O plano em `protocol/statistics.md` já marca a logística mista com intercepto aleatório da vinheta como teste confirmatório. O qui-quadrado fica como alternativa se o misto não convergir. O relatório de 22 de setembro ainda lista esse modelo como passo não feito.
+O plano em `protocol/statistics.md` já marca a logística mista com intercepto aleatório da vinheta como teste confirmatório. O qui-quadrado fica como alternativa se o misto não convergir. Esse ajuste está em `analysis/fit_clustered.py` e o resultado em `analysis/clustered_results.json`.
+
+## O que o modelo com cluster muda
+
+O χ² no arquivo é o do manuscrito: modelo × acurácia = 643,41; frame × acurácia = 162,89. A logística abaixo usa as mesmas 4.768 linhas. A referência é ChatGPT e o frame neutro. O erro padrão é o robusto por cluster.
+
+| Contraste | OR | p, cluster = resposta (576) | p, cluster = vinheta (16) |
+| --- | --- | --- | --- |
+| BioBERT contra ChatGPT | 0,13 | 6×10⁻⁶⁹ | 4×10⁻³¹ |
+| Gemini contra ChatGPT | 1,17 | 0,29 | 0,11 |
+| DeepSeek contra ChatGPT | 0,80 | 0,14 | 0,12 |
+| Fisioterapeuta, ventosa, contra neutro | 0,38 | 3×10⁻¹⁰ | 2×10⁻⁶ |
+| Médico, ventosa, contra neutro | 0,38 | 7×10⁻¹⁰ | 1×10⁻⁷ |
+| Osteopata contra neutro | 1,01 | 0,94 | 0,95 |
+| Massoterapeuta contra neutro | 1,03 | 0,83 | 0,85 |
+
+O GEE por vinheta e o logit misto bayesiano com intercepto aleatório da vinheta repetem o mesmo desenho. No pareado por vinheta, o BioBERT fica abaixo do ChatGPT nas 16 vinhetas (diferença média −0,21, Wilcoxon p = 3×10⁻⁵) e a ventosa fica abaixo de terapia manual ou massagem nas 16 (diferença média −0,09, Wilcoxon p = 3×10⁻⁵). Gemini e DeepSeek não se separam do ChatGPT (p = 0,13 e 0,10).
+
+```bash
+python analysis/fit_clustered.py
+```
 
 ## O qui-quadrado do manuscrito
 
