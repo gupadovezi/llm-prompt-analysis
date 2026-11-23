@@ -1,0 +1,112 @@
+{
+  "question": "Does the model endorse the recommendation embedded in the prompt?",
+  "primary_sample": {
+    "models": [
+      "chatgpt",
+      "gemini"
+    ],
+    "conditions": [
+      "confirming_true",
+      "confirming_false"
+    ],
+    "vignettes_excluded": [
+      "fear_of_movement",
+      "heat_ice_medication"
+    ],
+    "n_cells": 56,
+    "why_excluded": "heat_ice_medication does not embed the 'avoid strengthening' claim on the false sheet. Gemini does not answer fear_of_movement on that sheet."
+  },
+  "pooled_chi_square_and_fisher": {
+    "table_yes_no_by_true_then_false": [
+      [
+        24,
+        4
+      ],
+      [
+        0,
+        28
+      ]
+    ],
+    "n": 56,
+    "fisher_odds_ratio": null,
+    "fisher_p": 9.402916623774747e-12,
+    "chi2": 42.0,
+    "chi2_df": 1,
+    "chi2_p": 9.127341799289188e-11
+  },
+  "one_observation_per_vignette": {
+    "table_yes_no_by_true_then_false": [
+      [
+        12,
+        2
+      ],
+      [
+        0,
+        14
+      ]
+    ],
+    "n": 28,
+    "fisher_odds_ratio": null,
+    "fisher_p": 5.982560835165493e-06,
+    "chi2": 21.0,
+    "chi2_df": 1,
+    "chi2_p": 4.592833711753971e-06
+  },
+  "vignette_cluster_bootstrap": {
+    "unit": "vignette",
+    "n_vignettes": 14,
+    "mean_risk_difference_true_minus_false": 0.8571428571428571,
+    "bootstrap_ci95": [
+      0.6428571428571429,
+      1.0
+    ],
+    "sign_test_positive_vignettes": 12,
+    "sign_test_negative_vignettes": 0,
+    "sign_test_exact_p": 0.00048828125,
+    "vignettes_with_no_difference": 2
+  },
+  "wilcoxon_signed_rank_on_vignette_difference": {
+    "statistic": 0.0,
+    "p": 0.0005320055051392492,
+    "n_nonzero_pairs": 12
+  },
+  "agreement_of_the_two_models": {
+    "clusters": 28,
+    "models_per_cluster": 2,
+    "icc": 1.0,
+    "design_effect": 2.0,
+    "pairs_in_which_models_agree": 28
+  },
+  "gee": {
+    "usable": false,
+    "separated": true,
+    "log_odds_true_prompt": 34.355980786390965,
+    "se": null,
+    "note": "Separa\u00e7\u00e3o completa: a condi\u00e7\u00e3o falsa tem zero endossos. O odds ratio do GEE/GLMM vai para infinito e o erro padr\u00e3o n\u00e3o existe. O contraste correto aqui \u00e9 a diferen\u00e7a de risco por vinheta, n\u00e3o um logit misto."
+  },
+  "biobert_on_the_true_prompt": {
+    "pooled_treating_vignettes_as_independent": {
+      "table_yes_no_by_true_then_false": [
+        [
+          14,
+          2
+        ],
+        [
+          0,
+          16
+        ]
+      ],
+      "n": 32,
+      "fisher_odds_ratio": null,
+      "fisher_p": 5.09083319121424e-07,
+      "chi2": 24.888888888888886,
+      "chi2_df": 1,
+      "chi2_p": 6.073144997051676e-07
+    },
+    "mcnemar_discordant_chatgpt_yes_biobert_no": 14,
+    "mcnemar_discordant_other_way": 0,
+    "mcnemar_exact_p": 0.0001220703125,
+    "note": "BioBERT gives the same non-answer on every vignette. A chi-square counts those 16 cells as 16 independent failures. The paired test counts vignettes."
+  },
+  "conclusion": "On this contrast the conclusion does not flip. Both the pooled chi-square and the vignette-level tests say the same thing: the models endorse 'stay active' on the vignettes where that advice is reasonable, and they do not endorse 'avoid all strengthening until the pain is gone'. What changes is the sample size the test is allowed to claim. ChatGPT and Gemini agree in every primary cell, so the second model is not a new independent trial. Red-flag vignettes (fracture, possible serious disease) are the two cases in which 'stay active' is also refused, and that refusal is shared by both models. A borderline contrast, or a contrast that stacks BioBERT's repeated non-answers, would move."
+}
