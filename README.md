@@ -1,6 +1,18 @@
-# Dependência no estudo de prompt engineering
+# Estudo de prompt engineering em dor lombar
 
-Não existe um repositório anterior desta análise. Os textos dos modelos estão na planilha [Data_Prompt_Study](https://docs.google.com/spreadsheets/d/1phz5iTK4GwmzBwqwRF4BlM-nVzFjhwmzvZjqDfAvF4M). O arquivo com as 4.768 recomendações codificadas (accurate / inaccurate / unclear) não está aqui. O que dá para checar a partir das tabelas do manuscrito está em `analysis/manuscript_chi2_sensitivity.py`.
+Este repositório junta o que estava espalhado. A codificação original não era um projeto do Cursor: era um skill em `~/.cursor/skills/lbp-llm-prompt-accuracy/` no computador onde a conversa rodou. Por isso ela não aparecia no seletor de projetos, nem no GitHub.
+
+Os textos brutos continuam na planilha [Data_Prompt_Study](https://docs.google.com/spreadsheets/d/1phz5iTK4GwmzBwqwRF4BlM-nVzFjhwmzvZjqDfAvF4M). A codificação de cada recomendação está em `data/recommendations.jsonl`: 4.768 linhas, 4.295 accurate, 265 inaccurate, 208 unclear. Esses totais são os do manuscrito.
+
+| Pasta | O que é |
+| --- | --- |
+| `data/recommendations.jsonl` | Uma linha por recomendação, com modelo, vinheta, frame, turno e rótulo |
+| `protocol/` | Codebook, plano estatístico e o skill que gerou a codificação |
+| `reports/` | Relatório de 21 de setembro de 2026 (320 respostas) e o de 22 de setembro (576 respostas, nove frames) |
+| `manuscript/` | Manuscrito com os comentários |
+| `analysis/` | Checagem do qui-quadrado a partir das tabelas publicadas, e um contraste à parte lido da planilha bruta |
+
+O plano em `protocol/statistics.md` já marca a logística mista com intercepto aleatório da vinheta como teste confirmatório. O qui-quadrado fica como alternativa se o misto não convergir. O relatório de 22 de setembro ainda lista esse modelo como passo não feito.
 
 ## O qui-quadrado do manuscrito
 
